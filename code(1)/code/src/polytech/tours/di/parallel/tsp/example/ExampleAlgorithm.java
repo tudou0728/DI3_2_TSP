@@ -34,11 +34,11 @@ public class ExampleAlgorithm implements Algorithm
 		List<Callable<Solution>> tasks=new ArrayList<Callable<Solution>>();//创建多个线程	
 		for(int t=1; t<=nbTasks; t++)
 		{
-			tasks.add(new PISolution(config)); 
+			tasks.add(new PISolution(config)); //添加任务
 		}
 		try 
 		{
-			results=executor.invokeAll(tasks); 
+			results=executor.invokeAll(tasks); //批量提交结果 不限时
 			executor.shutdown();
 		} 
 		catch (InterruptedException e) 
