@@ -29,9 +29,9 @@ public class ExampleAlgorithm implements Algorithm
 	@Override
 	public Solution run(int nbThreads, int nbTasks,Properties config) throws ExecutionException 
 	{
-		ExecutorService executor = Executors.newFixedThreadPool(nbThreads);
-		List<Future<Solution>> results = null;
-		List<Callable<Solution>> tasks=new ArrayList<Callable<Solution>>();	
+		ExecutorService executor = Executors.newFixedThreadPool(nbThreads);//创建指定数量的线程池
+		List<Future<Solution>> results = null;//callable线程返回的结果
+		List<Callable<Solution>> tasks=new ArrayList<Callable<Solution>>();//创建多个线程	
 		for(int t=1; t<=nbTasks; t++)
 		{
 			tasks.add(new PISolution(config)); 
